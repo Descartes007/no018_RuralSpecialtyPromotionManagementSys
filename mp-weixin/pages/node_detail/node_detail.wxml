@@ -1,0 +1,137 @@
+<view class="stars">
+    <rateStar class="stars" modelData="{{modelData}}" rateObject="0" bind:modelConfirm="handleConfirm"></rateStar>
+</view>
+<swiper indicator-dots="{{true}}" autoplay="{{false}}" style="height:1000rpx">
+    <block wx:for="{{node.videoList}}" wx:key="*this">
+        <swiper-item>
+            <view class="express_img">
+                <video object-fit="contain" enable-play-gesture show-fullscreen-btn show-play-btn show-center-play-btn src="{{item}}"></video>
+            </view>
+        </swiper-item>
+    </block>
+    <block wx:for="{{node.imageList}}" wx:key="*this">
+        <swiper-item>
+            <view class="express_img">
+                <image mode="aspectFit" class="" src="{{item}}"></image>
+            </view>
+        </swiper-item>
+    </block>
+</swiper>
+<block wx:if="{{node.goodsList.length>0}}">
+    <swiper class="goods_list" indicator-dots="{{true}}" autoplay="{{false}}">
+        <swiper-item wx:for="{{node.goodsList}}" wx:key="id">
+            <goodsItem item="{{item}}"></goodsItem>
+        </swiper-item>
+    </swiper>
+</block>
+<view class="poem">
+    <view class="" bind:tap="replyNodeComment">
+        <block wx:if="{{node.status == 'REQUIRE_CERTIFICATION'||node.status == 'WAITING_CERTIFICATION'}}">
+            <view class="node_status">平台待认证</view>
+        </block>
+        <block wx:elif="{{node.status == 'AUTHORIZED'}}">
+            <view class="node_status">平台已认证</view>
+        </block>
+        <block wx:elif="{{node.status == 'UNAUTHORIZED'}}">
+            <view class="node_status">平台未认证</view>
+        </block>
+        <block wx:elif="{{node.status == 'DEFEAT_CERTIFICATION'}}">
+            <view class="node_status">平台认证未通过</view>
+        </block>
+        <view class="user">
+            <view class="user_img">
+                <image class="" src="{{node.user.avatar}}"></image>
+            </view>
+            <view class="">{{node.user.name}}</view>
+        </view>
+        <view class="title">{{node.title}}</view>
+        <view class="content">
+            <rich-text nodes="{{node.content}}"></rich-text>
+        </view>
+        <view class="create_time">{{node.createTime}}</view>
+        <view class="create_time" style="color:#709ee2">#{{node.address}}</view>
+    </view>
+    <view class="poem_tools">
+        <view class="poem_tools_item" catch:tap="copyInvitationCode" data-text="{{node.content}}">
+            <view class="poem_tools_img">
+                <image class="" src="/images/like.png"></image>
+            </view>
+            <view class="">复制</view>
+        </view>
+        <navigator url="/pages/index/index" open-type="switchTab" class="poem_tools_item">
+            <view class="poem_tools_img">
+                <image class="" src="/images/like.png"></image>
+            </view>
+            <view class="">首页</view>
+        </navigator>
+        <block wx:if="{{node.isLike}}">
+            <view class="poem_tools_item" catch:tap="handleLike">
+                <view class="poem_tools_img">
+                    <image class="" src="/images/like.png"></image>
+                </view>
+                <view class="like_count">评分{{node.likes||0}}</view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="poem_tools_item">
+                <view class="poem_tools_img" catch:tap="handleLike">
+                    <image class="" src="/images/like-e.png"></image>
+                </view>
+                <view class="like_count">评分{{node.likes||0}}</view>
+            </view>
+        </block>
+        <view class="poem_tools_item">
+            <view class="poem_tools_img">
+                <image class="" src="/images/like.png"></image>
+            </view>
+            <view class="">评分次数{{node.likeCount||0}}</view>
+        </view>
+    </view>
+    <view class="poem_icon_wrap">
+        <view class="poem_icon_item">
+            <view class="poem_icon_img">
+                <image class="" src="/images/like.png"></image>
+            </view>
+            <view class="">{{node.pageview}}人阅读</view>
+        </view>
+        <view class="poem_icon_item">
+            <view class="poem_icon_img">
+                <image class="" src="/images/like.png"></image>
+            </view>
+            <view class="">{{node.commentList.length}}人评论</view>
+        </view>
+    </view>
+    <block wx:for="{{node.commentList}}" wx:key="id">
+        <view class="comment_item" catch:tap="replyComment" data-is-parent="{{false}}" data-parent-id="{{item.id}}" data-to-id="{{item.fromId}}" data-reply-name="{{item.fromName}}">
+            <view class="comment_item_img">
+                <image class="" src="{{item.fromAvatar}}"></image>
+            </view>
+            <view class="comment_item_main">
+                <view class="comment_user">@{{item.fromName}}</view>
+                <view class="comment_content">{{item.content}}</view>
+                <view class="comment_time">{{item.createTime}}</view>
+            </view>
+        </view>
+        <block wx:for="{{item.childrenComment}}" wx:for-item="item2" wx:key="id">
+            <view class="comment_item_children" catch:tap="replyComment" data-is-parent="{{false}}" data-parent-id="{{item.id}}" data-to-id="{{item2.fromId}}" data-reply-name="{{item2.fromName}}">
+                <view class="comment_item_img">
+                    <image class="" src="{{item2.fromAvatar}}"></image>
+                </view>
+                <view class="comment_item_main">
+                    <view class="">
+                        <span class="comment_user">@{{item2.fromName}}</span>
+                        回复
+                        <span class="comment_user">@{{item2.toName}}</span>
+                    </view>
+                    <view class="comment_content">{{item2.content}}</view>
+                    <view class="comment_time">{{item2.createTime}}</view>
+                </view>
+            </view>
+        </block>
+    </block>
+    <view class="comment_over" bind:tap="replyNodeComment">没有更多评论了</view>
+    <view class="comment_input_wrap">
+        <input type="text" catch:blur="inputComment" value="{{replyContent}}" name="content" placeholder="{{replyObj.replyHint}}"></input>
+        <button catch:tap="sendComment">发送</button>
+    </view>
+</view>

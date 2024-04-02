@@ -1,0 +1,94 @@
+<view class="item_wrap">
+  <block wx:for="{{list}}" wx:key="id">
+    <view bindtap="handleNavDetail" bindlongtap="handleDeleteNode" data-id="{{item.id}}" class="item">
+      <image class="" mode="widthFix" src="{{item.showImg}}"></image>
+      <view class="item_title">{{item.title}}</view>
+      <view class="bottom_wrap">
+        <view class="user">
+          <view class="user_avatar">
+            <image class="" src="{{item.user.avatar}}"></image>
+          </view>
+          <view class="user_name">{{item.user.name}}</view>
+        </view>
+        <view class="like">
+          <view class="like_img" bind:tap="handleDisLike">
+            <image class="" src="/images/like-e.png"></image>
+          </view>
+          <view class="like_count">{{item.likes||0}}</view>
+        </view>
+      </view>
+      <block wx:if="{{item.showAdminControl}}">
+        <view class="bottom_wrap">
+          <block wx:if="{{item.status == 'WAITING_CERTIFICATION'}}">
+            <button catchtap="handleReleaseNode" data-id="{{item.id}}" size="mini" type="primary">
+              认证
+            </button>
+            <button catchtap="handleDefeatNode" data-id="{{item.id}}" size="mini" type="warn">
+              否认
+            </button>
+          </block>
+          <block wx:if="{{item.status == 'AUTHORIZED'}}">
+            <button disabled="{{true}}" catchtap="handleReleaseNode" data-id="{{item.id}}" size="mini" type="primary">
+              已认证
+            </button>
+          </block>
+          <block wx:if="{{item.status == 'UNAUTHORIZED'}}">
+            <button disabled="{{true}}" catchtap="handleDefeatNode" data-id="{{item.id}}" size="mini" type="warn">
+              已否认
+            </button>
+          </block>
+        </view>
+      </block>
+      <block wx:if="{{item.showAuditControl}}">
+        <view class="bottom_wrap">
+          <block wx:if="{{item.auditStatus == 'WAITING_AUDIT'}}">
+            <button catchtap="handleAuditReleaseNode" data-id="{{item.id}}" size="mini" type="primary">
+              通过
+            </button>
+            <button catchtap="handleAuditDefeatNode" data-id="{{item.id}}" size="mini" type="warn">
+              拒绝
+            </button>
+          </block>
+          <block wx:if="{{item.auditStatus == 'AUDIT_PASS'}}">
+            <button disabled="{{true}}" data-id="{{item.id}}" size="mini" type="primary">
+              已通过
+            </button>
+          </block>
+          <block wx:if="{{item.auditStatus == 'AUDIT_NO_PASS'}}">
+            <button disabled="{{true}}" data-id="{{item.id}}" size="mini" type="warn">已拒绝</button>
+          </block>
+        </view>
+      </block>
+      <block wx:if="{{item.showMyNodeStatus}}">
+        <view class="bottom_wrap">
+          <block wx:if="{{item.auditStatus == 'WAITING_AUDIT'}}">
+            <button disabled="{{true}}" data-id="{{item.id}}" size="mini" type="primary">
+              未审核
+            </button>
+          </block>
+          <block wx:if="{{item.auditStatus == 'AUDIT_PASS'}}">
+            <button disabled="{{true}}" data-id="{{item.id}}" size="mini" type="primary">
+              已审核
+            </button>
+          </block>
+          <block wx:if="{{item.auditStatus == 'AUDIT_NO_PASS'}}">
+            <button disabled="{{true}}" data-id="{{item.id}}" size="mini" type="warn">未通过</button>
+          </block>
+          <block wx:if="{{item.status == 'WAITING_CERTIFICATION'}}">
+            <button disabled="{{true}}" data-id="{{item.id}}" size="mini" type="primary">
+              待认证
+            </button>
+          </block>
+          <block wx:if="{{item.status == 'AUTHORIZED'}}">
+            <button disabled="{{true}}" data-id="{{item.id}}" size="mini" type="primary">
+              已认证
+            </button>
+          </block>
+          <block wx:if="{{item.status == 'UNAUTHORIZED'}}">
+            <button disabled="{{true}}" data-id="{{item.id}}" size="mini" type="warn">未认证</button>
+          </block>
+        </view>
+      </block>
+    </view>
+  </block>
+</view>

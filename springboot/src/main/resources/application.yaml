@@ -1,0 +1,39 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    # 你的账号和密码
+    username: root
+    password: 1025
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///no018_specialtypromotion?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+  servlet:
+    multipart:
+      max-file-size: 1GB
+      max-request-size: 1GB
+
+  jackson:
+    default-property-inclusion: non_null
+    date-format: "yyyy-MM-dd HH:mm:ss"
+  thymeleaf:
+    cache: false
+
+mapper:
+  enum-as-simple-type: true
+mybatis:
+  mapper-locations: mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+poem:
+  challenge-generate-question-count: 10
+  pk-generate-question-count: 20
+logging:
+  level:
+    com:
+      example:
+        lrb:
+          dao: debug
+server:
+  port: 8080

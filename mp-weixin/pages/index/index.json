@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "nodeList": "/components/node_list/node_list"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#cd8062",
+  "navigationBarTitleText": "首页"
+}

@@ -1,0 +1,74 @@
+<view class="feedback">
+    <form bindsubmit="submit">
+        <view class="feedback_form">
+            <textarea maxlength="{{100}}" name="content" value="{{content}}" class="feedback_textarea" placeholder="反馈内容（100字以内）"></textarea>
+        </view>
+        <button class="feedback_submit_btn" form-type="submit" type="primary">提交</button>
+    </form>
+    <view class="feedback_list" wx:if="{{feedbackList.length > 0}}">
+        <block wx:for="{{feedbackList}}" wx:key="item" wx:for-item="item" wx:for-index="item_index">
+            <view class="feedback_list_item">
+                <view class="feedback_list_item_feedback_wrap" bindlongpress="deleteFeedback" data-index="{{item_index}}">
+                    <view class="feedback_list_item_feedback">
+                        <view class="feedback_list_item_content_wrap">
+                            <view class="feedback_list_item_content">{{item.content}}</view>
+                            <view class="feedback_list_item_images">
+                                <block wx:for="{{item.imageArray}}" wx:key="*this" wx:for-item="image">
+                                    <view class="feedback_list_item_image">
+                                        <image data-src="{{image}}" data-index="{{item_index}}" src="{{image}}" bind:tap="previewImg"></image>
+                                    </view>
+                                </block>
+                            </view>
+                            <view class="feedback_list_item_create_time">{{item.createTime}}</view>
+                        </view>
+                    </view>
+                    <!-- <view class="feedback_list_item_name">：{{item.name}}</view> -->
+                </view>
+                <view class="feedback_list_item_reply">
+                    <block wx:if="{{item.replyContent}}">
+                        <view class="feedback_list_item_reply_content_swap">
+                            <view class="feedback_list_item_reply_content">
+                                {{item.replyContent}}
+                            </view>
+                            <view class="feedback_list_item_reply_time">
+                                {{item.replyTime}}
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:else>
+                        <view class="feedback_list_item_no_reply">待回复中</view>
+                    </block>
+                </view>
+                <!-- <view class="feedback_list_item_name_time">
+                    <view class="feedback_list_item_name">{{item.name}}：</view>
+                    <view class="feedback_list_item_time">{{item.createTime}}</view>
+                </view>
+                <view class="feedback_list_item_content">{{item.content}}</view>
+                <view class="feedback_list_item_images">
+                    <block wx:for="{{item.imageArray}}" wx:key="*this" wx:for-item="image">
+                        <view class="feedback_list_item_image">
+                            <image data-src="{{image}}" data-index="{{index}}" src="{{image}}" bind:tap="previewImg"></image>
+                        </view>
+                    </block>
+                </view>
+                <view class="feedback_list_item_reply">
+                    <block wx:if="{{item.replyContent}}">
+                        <view class="feedback_list_item_reply_title">回复：</view>
+                        <view class="feedback_list_item_reply_content_swap">
+                            <view class="feedback_list_item_reply_content">
+                                {{item.replyContent}}
+                            </view>
+                            <view class="feedback_list_item_reply_time">{{item.replyTime}}</view>
+                        </view>
+                    </block>
+                    <block wx:else>
+                        <view class="feedback_list_item_no_reply">待回复</view>
+                    </block>
+                </view>
+                <view class="feedback_list_item_delete">
+                    <button bind:tap="deleteFeedback" data-index="{{index}}" class="iconfont icon-ashbin"></button>
+                </view> -->
+            </view>
+        </block>
+    </view>
+</view>

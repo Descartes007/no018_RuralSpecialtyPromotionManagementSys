@@ -1,0 +1,32 @@
+.first_tab {
+  margin-top: 10rpx;
+}
+.first_tab view {
+  display: flex;
+}
+.first_tab view .goods_img_wrap {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.first_tab view .goods_img_wrap image {
+  width: 70%;
+}
+.first_tab view .goods_info_wrap {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 10rpx;
+}
+.first_tab view .goods_info_wrap .goods_name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.first_tab view .goods_info_wrap .goods_price {
+  color: red;
+  font-size: 32rpx;
+}

@@ -1,0 +1,37 @@
+<tabs tabs="{{tabs}}" tabStyle="{{tabStyle}}" bindtabsChange="selectTab"></tabs>
+<block wx:if="{{tabs[0].isActive}}">
+    <view style="border-left: 10rpx solid #cd8062;padding-left: 20rpx;margin-left:20rpx;margin-top:20rpx">
+        发布商品
+    </view>
+    <view class="feedback_image_swap">
+        <button type="default" bindtap="chooseImage" class="feedback_upload_btn feedback_image_node">
+            <text class="">+</text>
+        </button>
+        <block wx:for="{{imageList}}" wx:key="*this" wx:for-item="item" wx:for-index="index">
+            <view class="feedback_image feedback_image_node">
+                <image bind:tap="previewChooseImg" data-src="{{item}}" src="{{item}}"></image>
+                <icon bindtap="removeImage" data-index="{{index}}" type="clear" size="23" color="red"></icon>
+            </view>
+        </block>
+        <block wx:for="{{videoList}}" wx:key="*this" wx:for-item="item" wx:for-index="index">
+            <view class="feedback_image feedback_image_node">
+                <video bind:tap="previewChooseImg" data-src="{{item}}" src="{{item}}"></video>
+                <icon bindtap="removeVideo" data-index="{{index}}" type="clear" size="23" color="red"></icon>
+            </view>
+        </block>
+    </view>
+    <form class="creation_form" bindsubmit="creationSubmit">
+        <input type="text" name="title" value="{{form.title}}" bindinput="inputTitle" class="creation_form_input" placeholder="商品标题（30字以内）"></input>
+        <editor id="editor" class="creation_form_editor" bindblur="inputContent" placeholder="商品详情（200字以内）"></editor>
+        <input type="number" name="price" value="{{form.price}}" bindblur="inputPrice" class="creation_form_input" placeholder="商品价格"></input>
+        <input type="number" name="inventory" value="{{form.inventory}}" bindblur="inputInventory" class="creation_form_input" placeholder="商品库存"></input>
+        <button form-type="submit" class="submit_btn">发布商品</button>
+    </form>
+</block>
+<block wx:if="{{tabs[1].isActive}}">
+    <block wx:for="{{list}}" wx:key="id">
+        <view class="" bindlongpress="deleteGoods" data-index="{{index}}">
+            <goodsItem item="{{item}}"></goodsItem>
+        </view>
+    </block>
+</block>

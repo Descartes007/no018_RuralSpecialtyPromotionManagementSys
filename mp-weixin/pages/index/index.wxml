@@ -1,0 +1,23 @@
+<view class="top_bar">
+    <navigator url="/pages/switch_city/switch_city?selectCity={{selectCity}}" class="city">
+        {{selectCity}}
+    </navigator>
+    <view class="search_bar">
+        <input bindinput="handleSearch" type="text" placeholder="输入内容进行搜索"></input>
+        <view class="search_icon">
+            <image class="" src="/images/search.png"></image>
+        </view>
+    </view>
+</view>
+<!-- <view class="category_wrap">
+    <scroll-view class="category_list" scroll-x="true">
+        <view class="category_list">
+            <block wx:for="{{categoryList}}" wx:key="date">
+                <view bind:tap="selectCategory" data-index="{{index}}" class="category_item {{item.active?' category_item_active':''}}">
+                    <view>{{item.name}}</view>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+</view> -->
+<nodeList list="{{nodeList}}"></nodeList>

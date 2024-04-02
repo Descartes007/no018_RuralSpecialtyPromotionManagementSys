@@ -1,0 +1,9 @@
+.question_add button {
+  margin: 20rpx 0;
+  background-color: #cd8062;
+  color: #fff;
+}
+.content_item {
+  border-bottom: 10rpx solid #f8f8f8;
+  padding: 30rpx;
+}

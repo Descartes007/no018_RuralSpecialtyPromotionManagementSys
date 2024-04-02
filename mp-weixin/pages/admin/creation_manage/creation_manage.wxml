@@ -1,0 +1,14 @@
+<view class="top_bar">
+    <navigator url="/pages/switch_city/switch_city?selectCity={{selectCity}}" class="city">
+        {{selectCity}}
+    </navigator>
+    <view class="search_bar">
+        <input bindinput="handleSearch" type="text" placeholder="输入内容进行搜索"></input>
+        <view class="search_icon">
+            <image class="" src="/images/search.png"></image>
+        </view>
+    </view>
+</view>
+
+<tabs tabs="{{tabs}}" tabStyle="{{tabStyle}}" bindtabsChange="selectTab"></tabs>
+<nodeList bind:handleDeleteNode="handleDeleteNode" bind:handleReleaseNode="handleReleaseNode" bind:handleDefeatNode="handleDefeatNode" list="{{nodeList}}"></nodeList>

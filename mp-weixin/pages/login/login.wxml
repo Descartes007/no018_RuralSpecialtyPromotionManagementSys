@@ -1,0 +1,29 @@
+<view class="login">
+    <view class="" style="height:700rpx;">
+        <image class="" mode="" style="width:100%;height:100%" src="../../images/login_3.png"></image>
+    </view>
+    <view class="login_title">墟里烟-登陆</view>
+    <form class="login_form" bindsubmit="login">
+        <input class="login_form_input" name="name" type="text" placeholder="用户名"></input>
+        <input class="login_form_input" name="password" type="password" placeholder="密码"></input>
+        <radio-group bindchange="radioChange" class="user_role_wrap">
+            <label class="user_role">
+                <radio color="#cd8062" value="USER" checked="true" />
+                <view class="">普通用户</view>
+            </label>
+            <label class="user_role">
+                <radio color="#cd8062" value="MERCHANT" />
+                <view class="">商户</view>
+            </label>
+            <label class="user_role">
+                <radio color="#cd8062" value="ADMIN" />
+                <view class="">管理员</view>
+            </label>
+        </radio-group>
+        <button form-type="submit" class="submit_btn">登陆</button>
+        <button>
+            <navigator class="" target="" url="/pages/register/register">注册账户</navigator>
+        </button>
+    </form>
+</view>
+

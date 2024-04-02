@@ -1,0 +1,114 @@
+<form bindsubmit="submit" class="user_center">
+    <view class="form_input_wrap">
+        <radio-group bindchange="registerTypeChange">
+            <label class="">
+                <radio name="registerType" value="USER" checked="{{registerType=='USER'?'true':''}}" />
+                普通用户
+            </label>
+            <label class="">
+                <radio name="registerType" value="MERCHANT" checked="{{registerType=='MERCHANT'?'true':''}}" />
+                商户
+            </label>
+        </radio-group>
+    </view>
+    <view class="form_input_wrap">
+        <view class="form_input_prop">
+            <!-- <text class="iconfont icon-nickname"></text> -->
+            用户名
+        </view>
+        <input class="form_input" bind:input="bindInput" data-prop="name" name="name" type="text" value="{{form.name}}"></input>
+    </view>
+    <view class="form_input_wrap">
+        <view class="form_input_prop">
+            <!-- <text class="iconfont icon-namecard"></text> -->
+            密码
+        </view>
+        <input class="form_input" bind:input="bindInput" data-prop="password" name="password" type="password" value="{{form.password}}"></input>
+    </view>
+    <view class="form_input_wrap">
+        <view class="form_input_prop">
+            <!-- <text class="iconfont icon-namecard"></text> -->
+            确认密码
+        </view>
+        <input class="form_input" bind:input="bindInput" data-prop="confirmPass" name="confirmPass" type="password" value="{{form.confirmPass}}"></input>
+    </view>
+    <view class="form_input_wrap">
+        <view class="form_input_prop">
+            <!-- <text class="iconfont icon-nianling"></text> -->
+            年龄
+        </view>
+        <input class="form_input" bind:input="bindInput" data-prop="age" name="age" type="number" value="{{form.age}}"></input>
+    </view>
+    <view class="form_input_wrap">
+        <view class="form_input_prop">
+            性别
+            <!-- <text class="iconfont icon-xingbie"></text> -->
+        </view>
+        <view class="form_radio">
+            <radio-group bindchange="sexChange">
+                <label class="">
+                    <radio name="sex" value="男" checked="{{sex=='男'?'true':''}}" />
+                    男
+                </label>
+                <label class="">
+                    <radio name="sex" value="女" checked="{{sex=='女'?'true':''}}" />
+                    女
+                </label>
+            </radio-group>
+        </view>
+    </view>
+    <view class="form_input_wrap">
+        <view class="form_input_prop">
+            手机号
+            <!-- <text class="iconfont iicon-neirong"></text> -->
+        </view>
+        <input class="form_input" bind:input="bindInput" data-prop="mobile" name="mobile" value="{{form.mobile}}"></input>
+    </view>
+    <view class="form_input_wrap">
+        <view class="form_input_prop">
+            当前城市
+            <!-- <text class="iconfont icon-moneybag"></text> -->
+        </view>
+        <input class="form_input" disabled="{{true}}" bindtap="selectLocation" value="{{form.location}}"></input>
+    </view>
+    <view class="form_input_wrap">
+        <view class="form_input_prop">
+            家乡城市
+            <!-- <text class="iconfont iicon-neirong"></text> -->
+        </view>
+        <input class="form_input" disabled="{{true}}" bindtap="selectHometown" value="{{form.hometown}}"></input>
+    </view>
+    <block wx:if="{{registerType=='MERCHANT'}}">
+        <view class="form_input_wrap">
+            <view class="form_input_prop">
+                <!-- <text class="iconfont icon-namecard"></text> -->
+                身份证号
+            </view>
+            <input class="form_input" bind:input="bindInput" data-prop="idcard" name="idcard" type="text" value="{{form.idcard}}"></input>
+        </view>
+        <view class="form_input_wrap">
+            <view class="form_input_prop">
+                商铺地址
+                <!-- <text class="iconfont iicon-neirong"></text> -->
+            </view>
+            <input class="form_input" disabled="{{true}}" bindtap="selectAddress" value="{{form.address}}"></input>
+        </view>
+        <view class="form_input_wrap">
+            <view class="form_input_prop">
+                店铺名称
+                <!-- <text class="iconfont iicon-neirong"></text> -->
+            </view>
+            <input class="form_input" bind:input="bindInput" data-prop="storeName" name="storeName" value="{{form.storeName}}"></input>
+        </view>
+        <view class="form_input_wrap">
+            <view class="form_input_prop">
+                经营产品内容
+                <!-- <text class="iconfont icon-qiyejianjie"></text> -->
+            </view>
+            <textarea class="form_textarea" bind:input="bindInput" data-prop="products" name="products" value="{{form.products}}"></textarea>
+        </view>
+    </block>
+    <view class="register_form_submit">
+        <button form-type="submit" type="primary" class="">保存</button>
+    </view>
+</form>

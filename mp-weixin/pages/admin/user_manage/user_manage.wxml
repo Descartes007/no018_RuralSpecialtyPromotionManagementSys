@@ -1,0 +1,26 @@
+<view class="rank_wrap">
+    <view class="rank_main">
+        <view style="border-left: 10rpx solid #cd8062;padding-left: 20rpx;">用户管理</view>
+        <view class="rank_main_title rank_main_list">
+            <view class="">用户名</view>
+            <view class="">身份</view>
+            <view class="">操作</view>
+        </view>
+        <block wx:for="{{list}}" wx:key="id">
+            <view class="rank_main_list">
+                <view class="">{{item.name}}</view>
+                <view wx:if="{{item.role=='ADMIN'}}" class="">管理员</view>
+                <view wx:if="{{item.role=='USER'}}" class="">普通用户</view>
+                <view wx:if="{{item.role=='MERCHANT'}}" class="">商户</view>
+                <view class="oper_btns">
+                    <button class="oper_btn" bind:tap="updatePassword" data-index="{{index}}" size="mini">
+                        改密
+                    </button>
+                    <button class="oper_btn" bind:tap="deleteUser" type="warn" data-user-id="{{item.id}}" size="mini">
+                        删除
+                    </button>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

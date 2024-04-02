@@ -1,0 +1,21 @@
+<!--components/rateStar.wxml-->
+<view wx:if='{{modelData.showModel}}'>
+  <view class='mask_layer' bindtap='cancel' />
+  <view class='modal_box'>
+    <view class="title">在线评分</view>
+    <view class='content'>
+      <view class="wrapper">
+        <block wx:for="{{redScore}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+          <image class="star-icon" src="/images/like.png" data-redIndex="{{index}}" bindtap="giveScore"></image>
+        </block>
+        <block wx:for="{{grayScore}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+          <image class="star-icon" src="/images/like-e.png" data-greyIndex="{{index}}" bindtap="giveScore"></image>
+        </block>
+      </view>
+    </view>
+    <view class='btn1'>
+      <view wx:if='{{modelData.showCancel}}' bindtap='cancel' class='cancel'>取消</view>
+      <view bindtap='sure' class='sure'>确定</view>
+    </view>
+  </view>
+</view>

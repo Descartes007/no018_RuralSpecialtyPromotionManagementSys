@@ -1,0 +1,21 @@
+<view style="border-left: 10rpx solid #cd8062;padding-left: 20rpx;margin-left:20rpx;margin-top:20rpx">反馈管理</view>
+<block wx:for="{{list}}" wx:key="id">
+    <view bindtap="updateFeedback" bindlongtap="deleteFeedback" data-id="{{item.id}}" data-reply-content="{{item.replyContent}}" class="content_item">
+        <view class="feedback_item">
+            <span>用户：</span>
+            <span>{{item.name}}</span>
+        </view>
+        <view class="feedback_item">
+            <span>内容：</span>
+            <span>{{item.content}}</span>
+        </view>
+        <view class="feedback_item">
+            <span>回复内容：</span>
+            <span>{{item.replyContent}}</span>
+        </view>
+        <view class="feedback_item">
+            <span>反馈时间：</span>
+            <span>{{item.createTime}}</span>
+        </view>
+    </view>
+</block>

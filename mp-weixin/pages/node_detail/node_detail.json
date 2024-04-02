@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "rateStar":"../../components/rate_star/rate_star",
+    "goodsItem":"../../components/goods_item/goods_item"
+  },
+  "navigationBarTitleText": "笔记详情"
+}

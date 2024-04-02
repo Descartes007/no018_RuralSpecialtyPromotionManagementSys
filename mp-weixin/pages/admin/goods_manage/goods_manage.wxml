@@ -1,0 +1,6 @@
+<view style="border-left: 10rpx solid #cd8062;padding-left: 20rpx;margin:20rpx;margin-top:50rpx">商品管理</view>
+<block wx:for="{{list}}" wx:key="id">
+    <view class="" bindlongpress="deleteGoods" data-index="{{index}}">
+        <goodsItem item="{{item}}"></goodsItem>
+    </view>
+</block>

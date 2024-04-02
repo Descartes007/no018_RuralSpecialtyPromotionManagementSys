@@ -1,0 +1,14 @@
+<view style="border-left: 10rpx solid #cd8062;padding-left: 20rpx;margin:20rpx;margin-top:50rpx">
+    等待发货
+</view>
+<block wx:for="{{list}}" wx:key="id">
+    <view class="" bindlongpress="deleteGoods" data-index="{{index}}">
+        <view class="goods_item">
+            <goodsItem item="{{item.goods}}"></goodsItem>
+            <view class="goods_item_user">
+                <view class="">购买人：{{item.user.name}}</view>
+                <view class="">购买时间：{{item.createTime}}</view>
+            </view>
+        </view>
+    </view>
+</block>

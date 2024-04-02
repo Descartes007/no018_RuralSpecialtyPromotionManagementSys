@@ -1,0 +1,100 @@
+/* components/rateStar.wxss */
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.star-icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.mask_layer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+.modal_box {
+  width: 76%;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 1001;
+  background: #fafafa;
+  margin: -150px 12% 0 12%;
+  border-radius: 3px;
+}
+
+.title {
+  padding: 15px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 34rpx;
+  background-color: gazure;
+}
+
+.content {
+  padding: 0 20rpx;
+  overflow-y: scroll;
+  /*超出父盒子高度可滚动*/
+}
+
+.input_show1 {
+  margin: 0 auto;
+  width: 80%;
+  margin-left: 10%;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+.btn1 {
+  width: 100%;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.cancel {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+
+.sure {
+  width: 100%;
+  padding: 10px;
+  color: #44b549;
+  background-color: white;
+  border-left: 1px solid #d0d0d0;
+  text-align: center;
+}
+
+.modalMsg {
+  text-align: center;
+  font-size: 30rpx;
+  /* margin-top: 45rpx; */
+  display: block;
+}
+
+.next_show_remind {
+  display: flex;
+  justify-content: center;
+  margin-top: 20rpx;
+}

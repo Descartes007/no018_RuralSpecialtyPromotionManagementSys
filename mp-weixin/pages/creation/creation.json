@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "tabs": "../../components/tabs/tabs",
+    "nodeList": "/components/node_list/node_list",
+    "goodsItem": "/components/goods_item/goods_item"
+  },
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "发表笔记"
+}

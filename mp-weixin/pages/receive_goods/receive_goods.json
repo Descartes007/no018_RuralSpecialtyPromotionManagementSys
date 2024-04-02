@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "goodsItem": "../../components/goods_item/goods_item"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#cd8062",
+  "navigationBarTitleText": "等待发货"
+}

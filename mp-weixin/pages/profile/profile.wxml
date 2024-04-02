@@ -1,0 +1,133 @@
+<view class="profile">
+    <view class="avatar_bg">
+        <view class="user_info">
+            <image class="user_icon" src="{{user.avatar}}"></image>
+            <view class="user_name">{{user.name}}</view>
+        </view>
+    </view>
+    <view class="tips">
+        <view style="border-left: 10rpx solid #cd8062;padding-left: 20rpx;margin:20rpx 0">
+            个人中心
+        </view>
+    </view>
+    <view class="profile_func_list">
+        <navigator url="/pages/password/password" class="profile_func">
+            <view class="profile_func_img">
+                <image class="" src="/images/like.png"></image>
+            </view>
+            <view class="">修改密码</view>
+        </navigator>
+        <navigator url="/pages/creation/creation" open-type="switchTab" class="profile_func">
+            <view class="profile_func_img">
+                <image class="" src="/images/like.png"></image>
+            </view>
+            <view class="">添加笔记</view>
+        </navigator>
+        <navigator url="/pages/feedback/feedback" class="profile_func">
+            <view class="profile_func_img">
+                <image class="" src="/images/like.png"></image>
+            </view>
+            <view class="">问题反馈</view>
+        </navigator>
+        <block wx:if="{{user.role == 'MERCHANT' || user.role == 'ADMIN'}}">
+            <navigator url="/pages/goods/goods" class="profile_func">
+                <view class="profile_func_img">
+                    <image class="" src="/images/like.png"></image>
+                </view>
+                <view class="">商品管理</view>
+            </navigator>
+        </block>
+        <block wx:else>
+            <navigator url="/pages/switch_city/switch_city" class="profile_func">
+                <view class="profile_func_img">
+                    <image class="" src="/images/like.png"></image>
+                </view>
+                <view class="">切换城市</view>
+            </navigator>
+        </block>
+        <navigator url="/pages/creation/creation" open-type="switchTab" class="profile_func">
+            <view class="profile_func_img">
+                <image class="" src="/images/like.png"></image>
+            </view>
+            <view class="">我的笔记</view>
+        </navigator>
+        <block wx:if="{{user.role == 'USER'}}">
+            <navigator url="/pages/receive_goods/receive_goods" class="profile_func">
+                <view class="profile_func_img">
+                    <image class="" src="/images/like.png"></image>
+                </view>
+                <view class="">等待发货</view>
+            </navigator>
+        </block>
+        <block wx:elif="{{user.role == 'MERCHANT'}}">
+            <navigator url="/pages/sold_goods/sold_goods" class="profile_func">
+                <view class="profile_func_img">
+                    <image class="" src="/images/like.png"></image>
+                </view>
+                <view class="">已购商品</view>
+            </navigator>
+        </block>
+        <block wx:else>
+            <navigator open-type="switchTab" url="/pages/index/index" class="profile_func">
+                <view class="profile_func_img">
+                    <image class="" src="/images/like.png"></image>
+                </view>
+                <view class="">查看首页</view>
+            </navigator>
+        </block>
+        <button open-type="share" url="/pages/challenge/challenge" class="profile_func">
+            <view class="profile_func_img">
+                <image class="" src="/images/like.png"></image>
+            </view>
+            <view class="">分享程序</view>
+        </button>
+        <view bind:tap="logout" class="profile_func">
+            <view class="profile_func_img">
+                <image class="" src="/images/like.png"></image>
+            </view>
+            <view class="">退出登陆</view>
+        </view>
+    </view>
+    <block wx:if="{{user.role =='ADMIN'}}">
+        <view class="tips">
+            <view style="border-left: 10rpx solid #cd8062;padding-left: 20rpx;margin:20rpx 0">
+                系统管理
+            </view>
+        </view>
+        <view class="profile_func_list profile_func_list_admin">
+            <navigator url="/pages/admin/category_manage/category_manage" class="profile_func" style="border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);">
+                <view class="profile_func_img">
+                    <image class="" src="/images/like.png"></image>
+                </view>
+                <view class="">笔记审核</view>
+            </navigator>
+            <navigator url="/pages/admin/creation_manage/creation_manage" class="profile_func" style="border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);">
+                <view class="profile_func_img">
+                    <image class="" src="/images/like.png"></image>
+                </view>
+                <view class="">笔记认证</view>
+            </navigator>
+            <navigator url="/pages/admin/goods_manage/goods_manage" class="profile_func" style="border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);">
+                <view class="profile_func_img">
+                    <image class="" src="/images/like.png"></image>
+                </view>
+                <view class="">商品管理</view>
+            </navigator>
+            <navigator url="/pages/admin/user_manage/user_manage" class="profile_func" style="border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);">
+                <view class="profile_func_img">
+                    <image class="" src="/images/like.png"></image>
+                </view>
+                <view class="">用户管理</view>
+            </navigator>
+            <navigator url="/pages/admin/feedback_manage/feedback_manage" class="profile_func" style="border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);">
+                <view class="profile_func_img">
+                    <image class="" src="/images/like.png"></image>
+                </view>
+                <view class="">反馈管理</view>
+            </navigator>
+        </view>
+    </block>
+    <view class="tips">
+        <view class="tips_title">墟里烟 · 标记我的生活</view>
+    </view>
+</view>

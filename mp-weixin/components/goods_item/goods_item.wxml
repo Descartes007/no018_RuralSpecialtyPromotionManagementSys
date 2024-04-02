@@ -1,0 +1,12 @@
+<view class="first_tab">
+  <view class="">
+    <navigator url="/pages/goods_detail/goods_detail?goods_id={{item.id}}" class="goods_img_wrap">
+      <image mode="widthFix" src="{{item.showImg||'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}"></image>
+    </navigator>
+    <navigator url="/pages/goods_detail/goods_detail?goods_id={{item.id}}" class="goods_info_wrap">
+      <view class="goods_name">{{item.title}}</view>
+      <view class="goods_price">￥{{item.price}}</view>
+    </navigator>
+    <slot></slot>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "nodeList": "/components/node_list/node_list",
+    "tabs": "../../../components/tabs/tabs"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#cd8062",
+  "navigationBarTitleText": "笔记管理"
+}

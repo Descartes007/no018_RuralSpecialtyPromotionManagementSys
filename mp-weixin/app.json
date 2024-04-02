@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/profile/profile",
+    "pages/admin/goods_manage/goods_manage",
+    "pages/creation/creation",
+    "pages/login/login",
+    "pages/node_detail/node_detail",
+    "pages/goods_detail/goods_detail",
+    "pages/feedback/feedback",
+    "pages/admin/feedback_manage/feedback_manage",
+    "pages/password/password",
+    "pages/admin/creation_manage/creation_manage",
+    "pages/admin/user_manage/user_manage",
+    "pages/admin/category_manage/category_manage",
+    "pages/goods/goods",
+    "pages/switch_city/switch_city",
+    "pages/register/register",
+    "pages/receive_goods/receive_goods",
+    "pages/sold_goods/sold_goods"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序发表笔记使用"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#cd8062",
+    "navigationBarTitleText": "小红书",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "selectedColor": "#cd8062",
+    "backgroundColor": "#f5f5f5",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./images/index.png",
+        "selectedIconPath": "./images/index-o.png"
+      },
+      {
+        "pagePath": "pages/creation/creation",
+        "text": "发表",
+        "iconPath": "./images/creation.png",
+        "selectedIconPath": "./images/creation-o.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "./images/my.png",
+        "selectedIconPath": "./images/my-o.png"
+      }
+    ]
+  }
+}
