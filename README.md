@@ -73,7 +73,6 @@
 
 ## 小bug解决方案：
 - 删除文件夹vue中的package-lock.json文件
-- 
 - 重新 npm install
 
 ## 运行截图
