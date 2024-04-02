@@ -26,6 +26,15 @@ mybatis:
     map-underscore-to-camel-case: true
 
 
+aliyum:
+ oss:
+   endpoint: oss-cn-beijing.aliyuncs.com
+   accessKeyId: sadaLTAI4FypjwSWckxV7KN5yfau
+   accessKeySecret: dadQKU3wizJ14ogtDiXpzUVKwTspmngLu
+   bucketName: fvti-competition
+   bucketDomain: https://fvti-competition.oss-cn-beijing.aliyuncs.com/
+   avatarSuffix: .png
+
 poem:
   challenge-generate-question-count: 10
   pk-generate-question-count: 20
