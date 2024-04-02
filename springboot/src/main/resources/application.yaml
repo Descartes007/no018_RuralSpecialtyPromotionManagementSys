@@ -29,8 +29,8 @@ mybatis:
 aliyum:
  oss:
    endpoint: oss-cn-beijing.aliyuncs.com
-   accessKeyId: sadaLTAI4FypjwSWckxV7KN5yfau
-   accessKeySecret: dadQKU3wizJ14ogtDiXpzUVKwTspmngLu
+   accessKeyId: LTAI4FypjwSWckxV7KN5yfau
+   accessKeySecret: QKU3wizJ14ogtDiXpzUVKwTspmngLu
    bucketName: fvti-competition
    bucketDomain: https://fvti-competition.oss-cn-beijing.aliyuncs.com/
    avatarSuffix: .png
